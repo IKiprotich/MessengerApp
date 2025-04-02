@@ -15,10 +15,10 @@ struct LoginView: View {
             VStack{
                 Spacer()
                 //Logo Image
-                Image("messenger.app.icon")
+                Image("Messenger")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 200, height: 200)
+                    .frame(width: 150, height: 150)
                     .padding()
                 
                 //Text fields
