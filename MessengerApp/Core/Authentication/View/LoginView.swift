@@ -13,8 +13,9 @@ struct LoginView: View {
     var body: some View {
         NavigationStack{
             VStack{
+                Spacer()
                 //Logo Image
-                Image("Messenger")
+                Image("messenger.app.icon")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 200, height: 200)
@@ -25,9 +26,17 @@ struct LoginView: View {
                 VStack
                 {
                     TextField("Enter your email", text:$email)
-                        .padding()
+                        .font(.subheadline)
+                        .padding(12)
+                        .background(Color.gray.opacity(0.2))
+                        .cornerRadius(10)
+                        .padding(.horizontal, 24)
                     SecureField("Enter your password", text:$password)
-                        .padding()
+                        .font(.subheadline)
+                        .padding(12)
+                        .background(Color.gray.opacity(0.2))
+                        .cornerRadius(10)
+                        .padding(.horizontal, 24)
                 }
                 
                 //Forgot password
@@ -40,6 +49,7 @@ struct LoginView: View {
                         .fontWeight(.semibold)
                         .padding(.top)
                         .padding(.trailing, 28)
+                        
                 }
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 
@@ -49,8 +59,15 @@ struct LoginView: View {
                     print("Forgot Password")
                 } label: {
                     Text("Login")
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .frame(width:360, height: 44 )
+                        .background(Color(.blue))
+                        .cornerRadius(10)
+                        
                 }
-                
+                .padding(.vertical)
                 //Faceboook log in
                 
                 HStack{
