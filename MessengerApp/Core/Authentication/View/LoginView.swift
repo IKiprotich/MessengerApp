@@ -21,6 +21,7 @@ struct LoginView: View {
                     .padding()
                 
                 //Text fields
+                
                 VStack
                 {
                     TextField("Enter your email", text:$email)
@@ -30,6 +31,7 @@ struct LoginView: View {
                 }
                 
                 //Forgot password
+                
                 Button {
                     print("Forgot Password")
                 } label: {
@@ -39,12 +41,62 @@ struct LoginView: View {
                         .padding(.top)
                         .padding(.trailing, 28)
                 }
+                .frame(maxWidth: .infinity, alignment: .trailing)
                 
                 //Log in button
                 
+                Button {
+                    print("Forgot Password")
+                } label: {
+                    Text("Login")
+                }
+                
                 //Faceboook log in
                 
+                HStack{
+                    Rectangle()
+                        .frame(width: (UIScreen.main.bounds.width/2) - 40, height: 0.5)
+                    
+                    Text("OR")
+                        .font(.footnote)
+                        .fontWeight(.semibold)
+                    
+                    Rectangle()
+                        .frame(width: (UIScreen.main.bounds.width/2) - 40, height: 0.5)
+                }
+                .foregroundColor(.gray)
+                
+                HStack{
+                    Image("facebook")
+                        .resizable()
+                        .frame(width:20, height: 20)
+                    
+                    Text("Continue with Facebook")
+                        .font(.footnote)
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color(.blue))
+                    
+                }
+                .padding(.top, 8)
+                
+                Spacer()
+                
                 //Sign up link
+                Divider()
+                
+                NavigationLink {
+                    Text("sign up view")
+                    
+                } label: {
+                    HStack (spacing: 3){
+                        Text("Don't have an account?")
+                        
+                        Text("Sign Up")
+                            .fontWeight(.semibold)
+                    }
+                    .font(.footnote)
+                }
+                .padding(.vertical)
             }
         }
     }
