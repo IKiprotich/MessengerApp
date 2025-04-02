@@ -9,7 +9,22 @@ import SwiftUI
 
 struct LoginView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack{
+            VStack{
+                //Logo Image
+                
+                
+                //Text fields
+                
+                //Forgot password
+                
+                //Log in button
+                
+                //Faceboook log in
+                
+                //Sign up link
+            }
+        }
     }
 }
 
