@@ -11,6 +11,7 @@ struct RegistrationView: View {
     @State var email: String = ""
     @State var fullname: String = ""
     @State var password: String = ""
+    
     var body: some View {
         VStack{
             Spacer()
@@ -46,8 +47,42 @@ struct RegistrationView: View {
                     .cornerRadius(10)
                     .padding(.horizontal, 24)
             }
+            Button {
+                print("Forgot Password")
+            } label: {
+                Text("Sign Up")
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white)
+                    .frame(width:360, height: 44 )
+                    .background(Color(.blue))
+                    .cornerRadius(10)
+                    
+            }
+            .padding(.vertical)
+           
         }
+        Spacer()
+        
+        Divider()
+        
+        NavigationLink {
+            Text("sign up view")
+            
+        } label: {
+            HStack (spacing: 3){
+                Text("Already have an account?")
+                
+                Text("Sign In")
+                    .fontWeight(.semibold)
+            }
+            .font(.footnote)
         }
+        .padding(.vertical)
+
+        
+      }
+    
     }
     
     #Preview {
