@@ -27,11 +27,17 @@ struct ActiveNowView: View {
                                 
                             }
                         }
+                        Text("Ian")
+                            .font(.subheadline)
+                            .foregroundColor(Color(.systemGray))
+                        
                     }
                     
                 }
             }
+            .padding()
         }
+        .frame(height: 106)
     }
 }
 

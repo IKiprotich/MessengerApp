@@ -12,6 +12,8 @@ struct InboxView: View {
         NavigationStack{
             ScrollView{
             ActiveNowView()
+            
+            List
             }
             .toolbar{
                 ToolbarItem( placement: .navigationBarLeading){
