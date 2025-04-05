@@ -11,7 +11,8 @@ struct NewMessageView: View {
     @State private var searchText: String = ""
     @Environment(\.dismiss) var dismiss
     var body: some View {
-        ScrollView{
+        
+        NavigationStack{ ScrollView{
             TextField("To: ", text: $searchText)
                 .frame(height: 44)
                 .padding(.leading)
@@ -28,9 +29,12 @@ struct NewMessageView: View {
                 .foregroundColor(.black)
             }
         }
+        }
     }
 }
 
 #Preview {
-    NewMessageView()
+    NavigationStack{
+        NewMessageView()
+    }
 }
