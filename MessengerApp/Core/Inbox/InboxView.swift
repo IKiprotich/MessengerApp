@@ -40,12 +40,15 @@ struct InboxView: View {
                     Button {
                         showNewMessageView.toggle()
                     }  label: {
-                    }
+                        
                         Image(systemName: "square.and.pencil.circle.fill")
-                        .resizable()
-                        .frame(width: 32, height: 32)
-                        .foregroundStyle(.black, Color(.systemGray5))
+                            .resizable()
+                            .frame(width: 32, height: 32)
+                            .foregroundStyle(.black, Color(.systemGray5))
                     }
+                    
+                    }
+                
                 }
                 
             }
