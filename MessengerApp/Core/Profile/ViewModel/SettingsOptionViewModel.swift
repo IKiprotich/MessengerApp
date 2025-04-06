@@ -47,11 +47,11 @@ enum SettingsOptionViewModel: Int, CaseIterable, Identifiable {
     var imageBackgroundColor: Color {
         switch self {
         case .darkmode:
-            return Color.theme.primaryText
+            return Color.black
         case .activeStatus:
             return Color(.systemGreen)
         case .accesibility:
-            return Color.theme.primaryText
+            return Color.black
         case .privacy:
             return Color(.systemBlue)
         case .notifications:
