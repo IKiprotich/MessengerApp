@@ -16,54 +16,64 @@ struct ProfileView: View {
             //header
             VStack{
                 PhotosPicker(selection: $viewModel.selectedItem ){
-                    Image(systemName: "person.circle.fill")
-                        .resizable()
-                        .frame(width: 80, height: 80)
-                        .foregroundColor(Color(.systemGray4))
+                    if let profileImage = viewModel.profileImage{
+                        profileImage
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 80, height: 80)
+                            .clipShape(Circle())
+                    }
+                    else{
+                        Image(systemName: "person.circle.fill")
+                            .resizable()
+                            .frame(width: 80, height: 80)
+                            .foregroundColor(Color(.systemGray4))
+                    }
+                }
+                    
+                    Text("Kanye West")
+                        .font(.title)
+                        .fontWeight(.semibold)
                 }
                 
+                //list
                 
-                Text("Kanye West")
-                    .font(.title)
-                    .fontWeight(.semibold)
-            }
-            
-            //list
-            
-            List{
-                Section{
-                    ForEach(SettingsOptionViewModel.allCases,){ option in
-                        HStack{
-                            Image(systemName: option.imageName)
-                                .resizable()
-                                .frame(width:24, height: 24)
-                                .foregroundColor(option.imageBackgroundColor)
-                            Text(option.title)
-                                .font(.subheadline)
+                List{
+                    Section{
+                        ForEach(SettingsOptionViewModel.allCases,){ option in
+                            HStack{
+                                Image(systemName: option.imageName)
+                                    .resizable()
+                                    .frame(width:24, height: 24)
+                                    .foregroundColor(option.imageBackgroundColor)
+                                Text(option.title)
+                                    .font(.subheadline)
+                            }
                         }
                     }
+                    
+                    Section{
+                        Button("Log Out") {
+                            
+                        }
+                        Button("Delete Account") {
+                            
+                        }
+                    }
+                    .foregroundColor(.red)
+                    
                 }
                 
-                Section{
-                    Button("Log Out") {
-                        
-                    }
-                    Button("Delete Account") {
-                        
-                    }
-                }
-                .foregroundColor(.red)
                 
             }
             
             
         }
         
-        
+    }
+
+    #Preview {
+        ProfileView()
     }
     
-}
 
-#Preview {
-    ProfileView()
-}
