@@ -6,17 +6,21 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ProfileView: View {
+    @StateObject var viewModel = ProfileViewModel()
     var body: some View {
         
         VStack{
             //header
             VStack{
-                Image(systemName: "person.circle.fill")
-                    .resizable()
-                    .frame(width: 80, height: 80)
-                    .foregroundColor(Color(.systemGray4))
+                PhotosPicker(selection: $viewModel.selectedItem ){
+                    Image(systemName: "person.circle.fill")
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                        .foregroundColor(Color(.systemGray4))
+                }
                 
                 
                 Text("Kanye West")
