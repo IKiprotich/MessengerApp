@@ -26,6 +26,8 @@ struct InboxView: View {
                 .listStyle(PlainListStyle())
                 .frame(height:UIScreen.main.bounds.height - 120)
             }
+            .navigationDestination(for:User.self, destination: {user in
+            ProfileView(user: user)})
             .fullScreenCover(isPresented: $showNewMessageView, content: {
                 NewMessageView()})
             
