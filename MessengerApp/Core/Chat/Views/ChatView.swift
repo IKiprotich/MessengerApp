@@ -37,9 +37,9 @@ struct ChatView: View {
                 }
                 //messages
                 
-                ForEach(0...10, id:\.self){ message in
+                ForEach(viewModel.messages){ message in
                     
-                    ChatMessageCell(isFromCurrentUser: Bool.random())
+                    ChatMessageCell(message: message)
                     
                 }
             
@@ -57,7 +57,7 @@ struct ChatView: View {
                     .font(.subheadline)
                 
                 Button {
-                    viewModel.sendMesage()
+                    viewModel.sendMessage()
                     viewModel.messageText = ""
                 } label: {
                     Text("Send")
