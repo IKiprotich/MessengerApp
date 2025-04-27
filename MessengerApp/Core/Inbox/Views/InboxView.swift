@@ -24,8 +24,8 @@ struct InboxView: View {
             ActiveNowView()
             
                 List {
-                    ForEach (0...10, id: \.self){ message in
-                        InboxRowView()
+                    ForEach (viewModel.recentMessages){ message in
+                        InboxRowView(message: message)
                     }
                     
                 }
