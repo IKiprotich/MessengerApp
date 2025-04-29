@@ -37,8 +37,10 @@ struct InboxView: View {
                     }
                     
                 }
-            .listStyle(PlainListStyle())
-            .onChange(of: selectedUser, perform: {
+                .navigationTitle("Chats")
+                .navigationBarTitleDisplayMode(.inline)
+                .listStyle(PlainListStyle())
+                .onChange(of: selectedUser, perform: {
                 newValue in showChat = newValue != nil
             })
             .navigationDestination(for: Message.self, destination: { message in
