@@ -14,7 +14,7 @@ struct ActiveNowView: View {
             HStack(spacing: 32){
                 ForEach(viewModel.users){
                     user in
-                    NavigationLink(value: user){
+                    NavigationLink(value: Route.chatView(user)){
                         VStack{
                             ZStack(alignment: .bottomTrailing){
                                 CircularProfileImageView(user: user, size: .medium)
