@@ -10,9 +10,6 @@ import FirebaseAuth
 import FirebaseFirestore
 
 struct ChatService {
-    
-  
-    
     let chatPartner: User
     
     func sendMessage(_ messageText: String) {
@@ -27,7 +24,7 @@ struct ChatService {
         let messageId = currentUserRef.documentID
         
         let message = Message(
-            messageId: messageId,
+
             fromId: currentUid,
             toId: chatPartnerId,
             messageText: messageText,
@@ -51,12 +48,11 @@ struct ChatService {
         let query = FirestoreConstants.MessagesCollection
             .document(currentUid)
             .collection(chatPartnerId)
-            .order(by: "timestamp", descending: false)
+            .order(by: "timeStamp", descending: false)  
         
         query.addSnapshotListener { snapshot, _ in
-            guard let changes = snapshot?.documentChanges.filter({ $0.type == .added }) else {return}
-            var messages = changes.compactMap({try? $0.document.data(as: Message.self)})
-            
+            guard let changes = snapshot?.documentChanges.filter({ $0.type == .added }) else { return }
+            var messages = changes.compactMap({ try? $0.document.data(as: Message.self) })
             
             for (index, message) in messages.enumerated() where message.fromId != currentUid {
                 messages[index].user = chatPartner
@@ -64,6 +60,5 @@ struct ChatService {
             
             completion(messages)
         }
-        
-        }
+    }
 }
