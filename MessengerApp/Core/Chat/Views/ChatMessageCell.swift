@@ -15,8 +15,8 @@ struct ChatMessageCell: View {
     }
     
     var body: some View {
-        HStack{
-            if isFromCurrentUser{
+        HStack {
+            if isFromCurrentUser {
                 Spacer()
                 Text(message.messageText)
                     .font(.subheadline)
@@ -26,8 +26,14 @@ struct ChatMessageCell: View {
                     .frame(maxWidth: UIScreen.main.bounds.width / 1.5, alignment: .trailing)
             }
             else {
-                HStack(alignment: .bottom, spacing: 8){
-                    CircularProfileImageView(user: User.MOCK_USER, size: .xxsmall)
+                HStack(alignment: .bottom, spacing: 8) {
+                    if let user = message.user {
+                        CircularProfileImageView(user: user, size: .xxsmall)
+                    } else {
+                        Circle()
+                            .fill(Color.gray.opacity(0.3))
+                            .frame(width: 24, height: 24)
+                    }
                     
                     Text(message.messageText)
                         .font(.subheadline)
@@ -36,17 +42,10 @@ struct ChatMessageCell: View {
                         .foregroundColor(.black)
                         .clipShape(ChatBubble(isfromCurrentUser: isFromCurrentUser))
                         .frame(maxWidth: UIScreen.main.bounds.width / 1.75, alignment: .leading)
-                Spacer()
+                    Spacer()
                 }
             }
-            
         }
         .padding(.horizontal, 8)
-        
-        
     }
 }
-
-//#Preview {
-//    ChatMessageCell(isFromCurrentUser: false)
-//}
